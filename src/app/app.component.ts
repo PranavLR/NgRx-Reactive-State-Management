@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -7,8 +7,18 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  // hostDirectives: [
+  // Directives
+    /* 
+    {
+      directive: directiveName
+      inputs: [] 
+      outputs: []
+    } 
+    */
+  // ]
 })
 export class AppComponent {
-  title = 'MonsterLessonsAcademy';
+  title = 'Monster Lessons Academy';
 }

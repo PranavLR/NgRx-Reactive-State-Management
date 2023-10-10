@@ -1,0 +1,46 @@
+<ng-container *ngIf="data$ | async as data">
+    <ng-container *ngIf="!data.isLoading; else loading">
+        <div class="auth-page">
+            <div class=" container page">
+                <div class="row">
+                    <div class="col-md-8 col-lg-5 offset-md-3 col-xs-12">
+                        <h1 class="text-xs-center">Sign Up</h1>
+                        <p class="text-xs-center">
+                            <a [routerLink]="['/register']" >Have an account?</a>
+                        </p>
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                            <app-backend-error-message *ngIf="data.backendErrors" [backendErrors]="data.backendErrors"></app-backend-error-message>
+                            <fieldset class="form-group">
+                                <input type="text" class="form-control form-control-lg" placeholder="Username" formControlName="username">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="email" class="form-control form-control-lg" placeholder="Email" formControlName="email">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="password" class="form-control form-control-lg" placeholder="Password" formControlName="password">
+                            </fieldset>
+                            <button type="submit" class="btn btn-lg btn-primary pull-xs-right" [disabled]="data.isSubmitting">
+                                Sign Up
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-template #loading>
+        <div class="auth-page">
+            <div class=" container page">
+                <div class="row">
+                    <div class="col-md-8 col-lg-5 offset-md-3 col-xs-12">
+                        <h1 class="text-xs-center">Loading...</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</ng-container>
+
+
+
